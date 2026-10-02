@@ -1,0 +1,21 @@
+@startuml
+start
+
+:Assigner field = value;
+
+:Vérifier si niveau == 1;
+if (niveau == 1) then (Oui)
+  :estNiveau1 = true;
+else (Non)
+  :estNiveau1 = false;
+endif
+
+while (field >= palierExp(niveau)) is (Oui)
+  :Appeler levelUp();
+  if (estNiveau1 == false) then (Oui)
+    :Afficher "Le monstre $nom est maintenant niveau $niveau !";
+  endif
+endwhile (Non)
+
+stop
+@enduml

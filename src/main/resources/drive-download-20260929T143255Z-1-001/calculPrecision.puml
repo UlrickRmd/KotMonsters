@@ -1,0 +1,13 @@
+@startuml
+start
+
+:tirer un nombre aléatoire nb entre 1 et 100;
+
+if (nb < precision ?) then (Oui)
+    :Retourner true;
+else (Non)
+    :Retourner false;
+endif
+
+stop
+@enduml

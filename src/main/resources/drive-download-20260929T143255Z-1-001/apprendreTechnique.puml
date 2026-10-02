@@ -1,0 +1,33 @@
+@startuml
+start
+
+:Vérifier si le nombre de techniques <= 3 et que la technique est nouvelle ?;
+
+if (Condition remplie ?) then (Oui)
+  :Ajouter la nouvelle technique;
+  :Afficher message d'apprentissage;
+  stop
+else (Non)
+  :Afficher "Quelle technique souhaitez-vous oublier ?";
+  repeat
+    :Afficher la liste des techniques;
+    :Lire choix utilisateur;
+    if (Choix = 0) then (Oui)
+      stop
+    else (Non)
+      if (Choix valide ?) then (Oui)
+        break
+      else (Non)
+        :Afficher "Choix invalide";
+      endif
+    endif
+  repeat while (Choix invalide)
+
+  :Retirer la technique choisie;
+  :Afficher message d'oubli;
+  :Ajouter la nouvelle technique à la place;
+  :Afficher message d'apprentissage;
+  stop
+endif
+
+@enduml

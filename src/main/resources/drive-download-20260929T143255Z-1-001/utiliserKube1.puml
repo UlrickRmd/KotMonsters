@@ -1,0 +1,32 @@
+@startuml
+start
+
+:Afficher "Vous lancez le Monster Kube !";
+
+if (cible.entraineur != null) then (Oui)
+  :Afficher "Le monstre ne peut pas être capturé.";
+  stop
+else (Non)
+  :Tirer nbAleatoire = random(0..100);
+
+  if (nbAleatoire < chanceCapture) then (Succès)
+    :Afficher "Le monstre est capturé !";
+    :Demander un nouveau nom;
+    if (nouveauNom non vide) then (Oui)
+      :cible.nom = nouveauNom;
+    endif
+
+    if (joueur.equipeMonstre.size >= 6) then (Oui)
+      :Ajouter cible à la boîte;
+    else (Non)
+      :Ajouter cible à l'équipe;
+    endif
+
+    :cible.entraineur = joueur;
+    stop
+  else (Échec)
+    :Afficher "Presque ! Le Kube n'a pas pu capturer le monstre !";
+    stop
+  endif
+endif
+@enduml

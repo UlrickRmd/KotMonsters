@@ -1,0 +1,40 @@
+@startuml
+title Diagramme d'activité - testCalculPrecision()
+
+start
+
+:Créer technique100 (précision 100%)
+Créer technique0 (précision 0%)
+Créer technique50 (précision 50%);
+:Initialiser compteurT50 = 0;
+
+repeat
+  :Exécuter un test (x100);
+  if (technique100.calculPrecission() == true) then (oui)
+    :assertTrue réussi;
+  else (non)
+    :assertion échoue;
+    stop
+  endif
+
+  if (technique0.calculPrecission() ==false) then (oui)
+    :assertFalse réussi;
+  else (non)
+    :assertion échoue;
+    stop
+  endif
+  if (technique50.calculPrecission() == true) then (oui)
+    :compteurT50++;
+  endif
+repeat while (moins de 100 itérations?)
+
+:Afficher "compteurT50 = X";
+
+if (compteurT50 > 20 ET compteurT50 < 80) then (oui)
+  :assertion réussie;
+else (non)
+  :assertion échoue;
+endif
+
+stop
+@enduml

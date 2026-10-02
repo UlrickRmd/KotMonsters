@@ -1,0 +1,31 @@
+@startuml
+start
+
+:Incrémenter niveau;
+
+:Calcul nouvelle attaque;
+:attaque += round(espece.modAttaque * potentiel) + random(-2..2);
+
+:Calcul nouvelle défense;
+:defense += round(espece.modDefense * potentiel) + random(-2..2);
+
+:Calcul nouvelle vitesse;
+:vitesse += round(espece.modVitesse * potentiel) + random(-2..2);
+
+:Calcul nouvelle attaque spéciale;
+:attaqueSpe += round(espece.modAttaqueSpe * potentiel) + random(-2..2);
+
+:Calcul nouvelle défense spéciale;
+:defenseSpe += round(espece.modDefenseSpe * potentiel) + random(-2..2);
+
+:Calcul gain de PV;
+:gainPv = floor(espece.modPv * potentiel) + random(-5..5);
+
+:Mettre à jour pvMax;
+:pvMax += gainPv;
+
+:Mettre à jour pv;
+:pv += gainPv;
+
+stop
+@enduml

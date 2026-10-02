@@ -1,0 +1,15 @@
+@startuml
+start
+
+:Appeler genereMonstre();
+:Stocker résultat dans monstreSauvage;
+
+:Rechercher premier monstre du joueur avec PV > 0;
+:Stocker résultat dans premierPokemon;
+
+:Créer un objet CombatMonstre (premierPokemon, monstreSauvage);
+
+:Appeler combat.lanceCombat();
+
+stop
+@enduml

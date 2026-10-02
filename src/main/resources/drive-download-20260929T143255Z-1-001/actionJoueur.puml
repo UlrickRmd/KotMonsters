@@ -1,0 +1,48 @@
+@startuml
+start
+
+:Vérifier gameOver();
+if (gameOver == true) then (Oui)
+  :Retourner false;
+  stop
+else (Non)
+  :Afficher menu d'actions (1,2,3);
+  :Lire choixAction;
+
+  if (choixAction == 1) then (Attaquer)
+    :monstreJoueur.attaquer(monstreSauvage);
+  elseif (choixAction == 2) then (Utiliser un objet)
+    :Afficher sacAItems;
+    :Lire indexChoix;
+    :objetChoisi = joueur.sacAItems[indexChoix];
+
+    if (objetChoisi est Utilisable) then (Oui)
+      :captureRéussie = objetChoisi.utiliser(monstreSauvage);
+      if (captureRéussie) then (Oui)
+        :Retourner false;
+        stop
+      else (Non)
+        :Continuer le combat;
+      endif
+    else (Non)
+      :Afficher "Objet non utilisable";
+    endif
+
+  elseif (choixAction == 3) then (Changer de monstre)
+    :Afficher équipe de monstres (pv>0);
+    :Lire indexChoix;
+    :choixMonstre = joueur.equipeMonstre[indexChoix];
+
+    if (choixMonstre.pv <= 0) then (KO)
+      :Afficher "Impossible ! Ce monstre est KO";
+    else (OK)
+      :Afficher "[choixMonstre] remplace [monstreJoueur]";
+      :monstreJoueur = choixMonstre;
+    endif
+  endif
+endif
+
+:Retourner true;
+stop
+
+@enduml

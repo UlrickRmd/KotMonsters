@@ -1,0 +1,27 @@
+@startuml
+start
+
+while (Toujours vrai ?) is (Oui)
+  :Afficher "======= Votre équipe =======";
+  :Lister les monstres avec index et PV;
+  :Afficher "0 => Retour au menu";
+  :Afficher "M => Modifier l'ordre";
+  :Lire input;
+
+  if (input == "0") then (Oui)
+    break
+  elseif (input == "M" ou "m") then (Oui)
+    :Appeler modifierOrdreEquipe();
+    :continue;
+  else (Sinon)
+    :Convertir input en entier -> index;
+    if (index est valide ?) then (Oui)
+      :Afficher détails du monstre à index;
+    else (Non)
+      :Afficher "Choix invalide.";
+    endif
+  endif
+endwhile
+
+stop
+@enduml

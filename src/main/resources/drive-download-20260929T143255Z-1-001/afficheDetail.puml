@@ -1,0 +1,34 @@
+@startuml
+start
+
+:Obtenir l'art ASCII via espece.afficheArt();
+
+:Découper art en lignes -> artLines;
+
+:Construire la liste details (nom, niveau, PV, stats...);
+
+:Calculer maxArtWidth = largeur max de artLines;
+:Calculer maxLines = max(artLines.size, details.size);
+
+repeat
+  :i de 0 à maxLines-1;
+
+  if (i < artLines.size) then (Oui)
+    :artLine = artLines[i];
+  else (Non)
+    :artLine = "";
+  endif
+
+  if (i < details.size) then (Oui)
+    :detailLine = details[i];
+  else (Non)
+    :detailLine = "";
+  endif
+
+  :paddedArt = artLine.padEnd(maxArtWidth + 4);
+
+  :Afficher paddedArt + detailLine;
+repeat while (i < maxLines)
+
+stop
+@enduml

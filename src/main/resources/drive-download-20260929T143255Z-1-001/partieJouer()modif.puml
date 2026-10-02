@@ -1,0 +1,47 @@
+@startuml
+start
+:Initialiser intervaleValide = (1..4);
+
+while (true)
+    repeat
+        :Afficher zone et options de base (1 à 4);
+        if (zone est Ville ?) then (oui)
+            :Afficher options 5 (Soigner) et 6 (Arène);
+            :intervaleValide = (1..6);
+        else (non)
+        endif
+        :Lire choix utilisateur;
+    repeat while (choix !in intervaleValide)
+    switch (choix)
+        case (1)
+            :zone.rencontrerMonstre();
+        break
+        case (2)
+            :examinerEquipe();
+        break
+        case (3)
+            if (zoneSuivante != null) then (oui)
+                :Aller à zoneSuivante;
+            else (non)
+                :Afficher "Pas de zone suivante";
+            endif
+        break
+        case (4)
+            if (zonePrecedente != null) then (oui)
+                :Aller à zonePrecedente;
+            else (non)
+                :Afficher "Pas de zone precedente";
+            endif
+        break
+        case (5)
+            :joueur.soignerEquipe();
+            :Afficher "L'hopital soigne votre équipe";
+        break
+        case (6)
+            :TODO (zone as Ville).arene.challenger();
+        break
+   endswitch
+
+endwhile
+stop
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+start
+
+while (Toujours vrai ?) is (Oui)
+  repeat
+    :Afficher "Zone : ${zone.nom}";
+    :Afficher "1 => Chercher un monstre";
+    :Afficher "2 => Examiner mon équipe";
+    :Afficher "3 => Zone suivante";
+    :Afficher "4 => Zone précédente";
+    :Lire choix;
+  repeat while (choix !in 1..4)
+
+  switch (choix)
+    case (1)
+      :zone.rencontrerMonstre();
+    case (2)
+      :examinerEquipe();
+    case (3)
+      if (zoneSuivante existe ?) then (Oui)
+        :zone = zoneSuivante;
+      else (Non)
+        :Afficher "Pas de zone suivante";
+      endif
+    case (4)
+      if (zonePrécédente existe ?) then (Oui)
+        :zone = zonePrécédente;
+      else (Non)
+        :Afficher "Pas de zone précédente";
+      endif
+  endswitch
+endwhile
+
+stop
+@enduml

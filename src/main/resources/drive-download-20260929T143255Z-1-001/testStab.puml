@@ -1,0 +1,31 @@
+@startuml
+title Diagramme d'activité - testCalculBonusPuissanceAvecStab()
+
+start
+
+:Créer techFeu (Technique de type Feu, puissance 50);
+:Créer monstreFeu (Flamkip, élément Feu)
+Créer monstrePlante (SpringLeaf, élément Plante);
+
+:Appeler techFeu.calculBonusStab(monstreFeu)
+Stocker résultat dans bonusFeu;
+
+:Appeler techFeu.calculBonusStab(monstrePlante)
+Stocker résultat dans bonusPlante;
+
+if (bonusFeu == 65.0) then (oui)
+  :assertion réussie;
+else (non)
+  :assertion échoue;
+  stop
+endif
+
+if (bonusPlante == 35.0) then (oui)
+  :assertion réussie;
+else (non)
+  :assertion échoue;
+  stop
+endif
+
+stop
+@enduml

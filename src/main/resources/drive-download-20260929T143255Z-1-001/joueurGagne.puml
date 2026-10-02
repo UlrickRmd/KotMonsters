@@ -1,0 +1,22 @@
+@startuml
+start
+
+if (monstreSauvage.pv <= 0) then (Oui)
+  :Afficher "[joueur.nom] a gagné !";
+  :Calculer gainExp = monstreSauvage.exp * 0.20;
+  :Ajouter gainExp à monstreJoueur.exp;
+  :Afficher "[monstreJoueur.nom] gagne [gainExp] exp";
+  :Retourner true;
+  stop
+else (Non)
+  if (monstreSauvage.entraineur == joueur) then (Oui)
+    :Afficher "[monstreSauvage.nom] a été capturé !";
+    :Retourner true;
+    stop
+  else (Non)
+    :Retourner false;
+    stop
+  endif
+endif
+
+@enduml

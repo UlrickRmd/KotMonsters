@@ -1,0 +1,28 @@
+@startuml
+start
+
+:Créer monstre1 (Springleaf);
+:Créer monstre2 (Flamkip);
+:Créer monstre3 (Aquamy);
+
+repeat
+  :Afficher détails de Springleaf;
+  :Afficher détails de Flamkip;
+  :Afficher détails de Aquamy;
+  :Afficher menu de choix (1..3);
+  :Lire choixSelection;
+repeat while (choixSelection !in 1..3)
+
+if (choixSelection == 1) then (Oui)
+  :starter = monstre1;
+elseif (choixSelection == 2) then (Oui)
+  :starter = monstre2;
+else (Sinon)
+  :starter = monstre3;
+endif
+
+:Appeler starter.rennomer();
+:Ajouter starter à joueur.equipeMonstre;
+:starter.entraineur = joueur;
+stop
+@enduml

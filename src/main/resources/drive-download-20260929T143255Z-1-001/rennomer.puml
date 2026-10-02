@@ -1,0 +1,15 @@
+@startuml
+start
+
+:Afficher "Renommer [nom] ?";
+
+:Lire saisie utilisateur -> nouveauNom;
+
+if (nouveauNom est vide) then (Oui)
+  :Ne rien faire;
+else (Non)
+  :Mettre à jour this.nom = nouveauNom;
+endif
+
+stop
+@enduml

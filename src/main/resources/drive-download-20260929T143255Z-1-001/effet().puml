@@ -1,0 +1,35 @@
+@startuml
+title Diagramme d'activité - Technique.effet()
+
+start
+:Entrée (attaquant, défenseur);
+
+if (estBuff ?) then (oui)
+  :TODO Déclencher buff (futur Statut);
+endif
+
+if (estDebuff ?) then (oui)
+  :TODO Déclencher debuff (futur Statut);
+endif
+
+if (faireDegats ?) then (oui)
+  if (estSpecial ?) then (oui)
+    :degatsBase = attaquant.attaqueSpe;
+  else (non)
+    :degatsBase = attaquant.attaque;
+  endif
+
+  :multiplicateur = calculBonusStab(attaquant);
+
+  :multiElement = efficacité élément contre type[0];
+  if (défenseur a 2 éléments ?) then (oui)
+    :multiElement *= efficacité élément contre type[1];
+  endif
+
+  :Résultat = (degatsBase * multiplicateur) * multiElement;
+  stop
+else (non)
+  :Résultat = 0.0;
+  stop
+endif
+@enduml

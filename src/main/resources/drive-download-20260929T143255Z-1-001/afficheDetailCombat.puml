@@ -1,0 +1,17 @@
+@startuml
+start
+
+:Afficher "======== Début Round : $round ========";
+
+:Afficher "Niveau : monstreSauvage.niveau";
+:Afficher "PV : monstreSauvage.pv / monstreSauvage.pvMax";
+
+:Afficher ASCII art du monstre sauvage (face);
+
+:Afficher ASCII art du monstre joueur (dos);
+
+:Afficher "Niveau : monstreJoueur.niveau";
+:Afficher "PV : monstreJoueur.pv / monstreJoueur.pvMax";
+
+stop
+@enduml

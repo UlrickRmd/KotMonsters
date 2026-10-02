@@ -1,0 +1,21 @@
+@startuml
+start
+:Construire listeDresseurs = dresseurs + champion (avec monstres vivants);
+
+while (listeDresseurs non vide)
+    :adversaire = premier de listeDresseurs;
+    :combat = CombatDresseur(1, joueur, adversaire);
+    if (combat.lanceCombat() ?) then (défaite)
+        :Afficher "❌ joueur a été vaincu par adversaire";
+        stop
+    else (victoire)
+        :Afficher "✅ joueur a vaincu adversaire";
+        :retirer adversaire de listeDresseurs;
+    endif
+endwhile
+
+:Afficher "🏆 joueur a gagné tous ses combats dans l'arène nom";
+:joueur.sacAItems.add(badge);
+:Afficher "🎖️ joueur remporte le badge";
+stop
+@enduml

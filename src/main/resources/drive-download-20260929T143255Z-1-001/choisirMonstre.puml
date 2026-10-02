@@ -1,0 +1,28 @@
+@startuml
+start
+
+:Filtrer les monstres vivants (pv > 0);
+
+if (Un seul monstre vivant ?) then (oui)
+  :Retourner ce monstre;
+  stop
+else (non)
+  :Afficher "Choisir un monstre de l'équipe";
+
+  repeat
+    :Afficher la liste des monstres vivants avec leur index;
+    :Demander saisie de l'utilisateur;
+    :Convertir la saisie en entier (choixIndex);
+
+    if (choixIndex est valide ?) then (oui)
+      :choixMonstre = monstresVivants[choixIndex];
+    else (non)
+      :Afficher "Choix invalide, réessayez.";
+    endif
+  repeat while (choixMonstre == null)
+
+  :Retourner choixMonstre;
+  stop
+endif
+
+@enduml

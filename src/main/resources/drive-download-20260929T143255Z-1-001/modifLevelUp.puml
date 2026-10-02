@@ -1,0 +1,17 @@
+@startuml
+title Diagramme d'activité : Vérification d'évolution dans levelUp()
+
+start
+
+if (espece.palierEvolution != null) then (oui)
+  if (espece.palierEvolution.peutEvoluer(this)) then (oui)
+    :Appeler evoluer();
+  else (non)
+    :Ne rien faire (pas d'évolution);
+  endif
+else (non)
+  :Pas de palier d'évolution défini;
+endif
+
+stop
+@enduml

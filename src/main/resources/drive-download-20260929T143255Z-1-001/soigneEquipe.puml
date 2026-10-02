@@ -1,0 +1,12 @@
+@startuml
+start
+
+:Initialiser l'itération sur l'équipe de monstres;
+
+repeat
+  :Prendre le prochain monstre de l'équipe;
+  :Assigner pv = pvMax pour ce monstre;
+repeat while (Y a-t-il encore des monstres ?) is (oui)
+
+stop
+@enduml

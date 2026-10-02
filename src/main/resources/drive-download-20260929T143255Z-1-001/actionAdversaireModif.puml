@@ -1,0 +1,14 @@
+@startuml
+start
+if (monstreSauvage.pv > 0 ?) then (oui)
+    if (monstreSauvage.techniques non vide ?) then (oui)
+        :Sélectionner une technique aléatoire;
+        :Appeler effet(monstreSauvage, monstreJoueur);
+    else (non)
+        :Appeler attaquer(monstreSauvage, monstreJoueur);
+    endif
+else (non)
+
+endif
+stop
+@enduml

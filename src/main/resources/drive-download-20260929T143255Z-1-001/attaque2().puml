@@ -1,0 +1,33 @@
+@startuml
+start
+
+if (this.techniques est vide ?) then (Oui)
+  :Calculer degatBrut = this.attaque;
+  :Calculer degatTotal = degatBrut - (cible.defense/2);
+  :degatTotal = max(degatTotal, 1);
+  :Réduire les PV de la cible;
+  :Afficher message attaque basique;
+  stop
+else (Non)
+  :Afficher la liste des techniques;
+  repeat
+    :Lire choix utilisateur;
+  repeat while (choix invalide)
+
+  :Sélectionner techniqueChoisie;
+
+  if (techniqueChoisie.calculPrecision() ?) then (Échoue)
+    :Afficher "attaque échoue";
+    stop
+  else (Réussit)
+    :Calculer degats = techniqueChoisie.effet();
+    if (techniqueChoisie.faireDegats ?) then (Oui)
+      :degats = max(degats - (cible.defense/2), 1);
+      :Réduire les PV de la cible;
+      :Afficher message dégâts;
+    endif
+  endif
+endif
+
+stop
+@enduml

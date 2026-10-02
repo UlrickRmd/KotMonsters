@@ -1,0 +1,31 @@
+@startuml
+start
+
+:Calculer joueurPlusRapide = (monstreJoueur.vitesse >= monstreSauvage.vitesse);
+
+:Appeler afficheCombat();
+
+if (joueurPlusRapide ?) then (Oui)
+    :continuer = actionJoueur();
+    if (continuer == false) then (Oui)
+        stop
+    else (Non)
+        :actionAdversaire();
+    endif
+else (Non)
+    :actionAdversaire();
+    if (gameOver() == false) then (Oui
+        :continuer = actionJoueur();
+        if (continuer == false) then (Oui)
+            stop
+        else (Non)
+
+        endif
+    else (Non)
+        stop
+    endif
+endif
+
+stop
+@enduml
+

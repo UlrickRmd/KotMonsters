@@ -1,0 +1,22 @@
+@startuml
+start
+
+:Initialiser degatBrut = this.attaque;
+
+:Calcul degatTotal = degatBrut - (this.defense / 2);
+
+if (degatTotal < 1) then (Oui)
+  :degatTotal = 1;
+endif
+
+:Enregistrer pvAvant = cible.pv;
+
+:Mettre à jour cible.pv -= degatTotal;
+
+:Enregistrer pvApres = cible.pv;
+
+:Afficher message :
+"[nom attaquant] inflige (pvAvant - pvApres) dégâts à [cible.nom]";
+
+stop
+@enduml
