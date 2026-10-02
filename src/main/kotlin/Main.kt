@@ -9,11 +9,15 @@ import jeu.Partie
 import monstre.PalierEvolution
 
 
+/** Le joueur, initialisé avec l'entraîneur "Sacha" et 100 d'argent. */
 var joueur = Entraineur(1, "Sacha",100)
+
+/** Le rival du joueur, initialisé avec l'entraîneur "Red" et 500 d'argent. */
 var rival = Entraineur(2, "Red", 500)
 
 
 
+/** Espèce Springleaf : petit monstre de type Graine. */
 val especeSpringleaf = EspeceMonstre(
     id = 1,
     nom = "Springleaf",
@@ -35,6 +39,7 @@ val especeSpringleaf = EspeceMonstre(
     caractères = "Curieux, amical, timide"
 )
 
+/** Espèce Flamkip : petit animal de feu, évolue en Pyrokip. */
 val especeFlamkip = EspeceMonstre(
     id = 4,
     nom = "Flamkip",
@@ -56,6 +61,7 @@ val especeFlamkip = EspeceMonstre(
     caractères = "Impulsif, joueur, loyal"
 )
 
+/** Espèce Pyrokip : évolution de Flamkip. */
 val especePyrokip = EspeceMonstre(
     id = 5,
     nom = "pyrokip",
@@ -77,6 +83,7 @@ val especePyrokip = EspeceMonstre(
     caractères = "Fier, protecteur, explosif.",
 )
 
+/** Espèce Aquamy : créature vaporeuse de type Météo. */
 val especeAquamy = EspeceMonstre(
     id = 7,
     nom = "Aquamy",
@@ -98,6 +105,7 @@ val especeAquamy = EspeceMonstre(
     caractères = "Calme, rêveur, mystérieux"
 )
 
+/** Espèce Laoumi : petit ourson de type Animal. */
 val especeLaoumi = EspeceMonstre(
     id = 8,
     nom = "Laoumi",
@@ -119,6 +127,7 @@ val especeLaoumi = EspeceMonstre(
     caractères = "Affectueux, protecteur, gourmand"
 )
 
+/** Espèce Bugsyface : insecte à carapace luisante. */
 val especeBugsyface = EspeceMonstre(
     id = 10,
     nom = "Bugsyface",
@@ -140,6 +149,7 @@ val especeBugsyface = EspeceMonstre(
     caractères = "Travailleur, sociable, infatigable"
 )
 
+/** Espèce Galum : golem ancien de type Minéral. */
 val especeGalum = EspeceMonstre(
     id = 13,
     nom = "Galum",
@@ -161,6 +171,7 @@ val especeGalum = EspeceMonstre(
     caractères = "Sérieux, stoïque, fiable"
 )
 
+/** Zone "Route 1" : première zone du jeu (Springleaf et Bugsyface). */
 var route1 = Zone(
     id = 1,
     nom = "Route 1",
@@ -168,6 +179,7 @@ var route1 = Zone(
     especesMonstres = mutableListOf(especeSpringleaf, especeBugsyface)
 )
 
+/** Zone "Route 2" : deuxième zone du jeu (Flamkip et Aquamy). */
 var route2 = Zone(
     id = 2,
     nom = "Route 2",
@@ -176,6 +188,7 @@ var route2 = Zone(
     zonePrecedante = route1
 )
 
+/** Zone "Route 3" : troisième zone du jeu (Laoumi et Galum). */
 var route3 = Zone(
     id = 3,
     nom = "Route 3",
@@ -184,6 +197,7 @@ var route3 = Zone(
     zonePrecedante = route2
 )
 
+/** Monster Kube de base, permettant de capturer des monstres (50 % de chance de capture de base). */
 val monsterKube = MonsterKube(
     id = 1,
     nom = "Monster Kube",
@@ -191,6 +205,7 @@ val monsterKube = MonsterKube(
     chanceCapture = 50.0
 )
 
+/** Palier d'évolution de Flamkip : évolue en Pyrokip au niveau 7. */
 val palierEvolutionFlamkip = PalierEvolution(
     id = 1,
     niveauRequis = 7,
